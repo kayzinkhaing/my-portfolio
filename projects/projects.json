@@ -1,0 +1,93 @@
+[
+  {
+    "name": "GiveMM – Charity Crowdfunding Platform",
+    "desc": "Full-stack web application for fundraising campaigns with local and international payment integrations and real-time progress tracking.",
+    "image": "donation",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/ITVHBaseCode/Givemm",
+      "code": "https://github.com/ITVHBaseCode/Givemm"
+    }
+  },
+  {
+    "name": "Daily Fair Deal",
+    "desc": "Multi-service marketplace integrating food delivery, e-commerce, ride-hailing, real-time location tracking, and Stripe payment system.",
+    "image": "daily fair deal",
+    "category": "web",
+    "links": {
+      "view": "https://dailyfairdeal.com/",
+      "code": "https://github.com/RideAndSavor/rideAndSavor"
+    }
+  },
+  {
+    "name": "Real Estate Management System",
+    "desc": "Backend system with property management, user registration, booking, reviews, social login, and secure RESTful APIs with token-based authentication.",
+    "image": "realestate",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/Daily-activities/Real-Estate-Project",
+      "code": "https://github.com/Daily-activities/Real-Estate-Project"
+    }
+  },
+  {
+    "name": "Yummy Restaurant System",
+    "desc": "A scalable restaurant management platform with online ordering for customers and an admin dashboard for menu, user, and order management.",
+    "image": "restaurant",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/Restaurant",
+      "code": "https://github.com/kayzinkhaing/Restaurant"
+    }
+  },
+  {
+    "name": "Media Library",
+    "desc": "A media library system for managing books, movies, and music with user registration, search functionality, and admin controls.",
+    "image": "medialibrary",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/MediaLibrary",
+      "code": "https://github.com/kayzinkhaing/MediaLibrary"
+    }
+  },
+  {
+    "name": "Book Reviews",
+    "desc": "A book review platform with user authentication, book management, and a review system for users to share their thoughts on books.",
+    "image": "bookreviews",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/Book-reviews",
+      "code": "https://github.com/kayzinkhaing/Book-reviews"
+    }
+  },
+  {
+    "name": "Event Management System",
+    "desc": "A comprehensive event management platform with user registration, event creation, ticket booking, and admin controls for managing events.",
+    "image": "eventmanagement",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/Event-Management",
+      "code": "https://github.com/kayzinkhaing/Event-Management"
+    }
+  },
+
+  {
+    "name": "E-commerce Project",
+    "desc": "A full-stack e-commerce application with user authentication, product management, and a shopping cart system.",
+    "image": "ecommerce",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/Ecommerce-Project",
+      "code": "https://github.com/kayzinkhaing/Ecommerce-Project"
+    }
+  },
+  {
+    "name": "Job Board",
+    "desc": "A job board platform for posting and applying for jobs with user authentication, job management, and application tracking.",
+    "image": "jobboard",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/kayzinkhaing/Job_Board",
+      "code": "https://github.com/kayzinkhaing/Job_Board"
+    }
+  }
+]
