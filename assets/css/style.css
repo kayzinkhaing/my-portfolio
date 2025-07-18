@@ -598,147 +598,290 @@ header .navbar ul li a::after {
 }
 /* skills media queries ends*/
 /* skills section ends */
-
 /* education section starts */
 .education {
-  background: #e5ecfb;
-  min-height: 80vh;
+    background: #fdfefe; /* Very light, almost white background */
+    min-height: 85vh;
+    padding: 6rem 0 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.education .heading {
+    margin-bottom: 2rem;
+    color: #34495e; /* Darker heading */
 }
 
 .education .qoute {
-  font-size: 1.5rem;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  margin-top: 0.5rem;
+    font-size: 1.9rem;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    margin-bottom: 5rem;
+    color: #6c757d;
+    max-width: 85rem;
+    line-height: 1.6;
 }
 
 .education .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center the box in the container */
-  align-items: center;
-  flex-direction: column;
-}
-
-.education .box-container .box {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  text-align: center;
-  position: relative;
-  margin-top: 2rem;
-  overflow: hidden;
-  transition: 0.3s;
-  background: rgb(252, 252, 252);
-
-  /* New: move content to the right */
-  padding-left: 3rem; /* Push content to the right */
-}
-
-.education .box-container .box:hover {
-  transform: scale(1.03);
-  box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
-}
-
-.education .box-container .box .image {
-  flex: 0 0 180px;
-  width: 180px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.education .box-container .box .image img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.education .box-container .box img {
-  object-fit: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.education .box-container .box .content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  flex-wrap: wrap;
-  flex: 1 1 70rem;
-}
-
-.education .box-container .box .content h3 {
-  font-size: 2.5rem;
-  color: #012970;
-  padding: 0.5rem 0;
-  font-weight: 600;
-  text-align: left;
-  margin-left: 1rem;
-}
-
-.education .box-container .box .content p {
-  font-size: 1.5rem;
-  margin-left: 1rem;
-  text-align: left;
-}
-
-.education h4 {
-  font-size: 2rem;
-  color: rgb(34, 109, 0);
-  text-align: left;
-  margin: 1rem;
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-}
-
-/* education media queries starts */
-@media screen and (max-width: 600px) {
-  .education .box-container .box {
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
     width: 100%;
-    padding-left: 0; /* Remove padding on small screens */
-  }
+}
 
-  .education .box-container .box .image {
+.education-hero-card {
+    display: flex;
+    flex-direction: column; /* Image on top, content below */
+    width: 90rem; /* Wide card */
+    max-width: 92%; /* Responsive width */
+    background: #ffffff;
+    border-radius: 1.8rem; /* Soft rounded corners */
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.12); /* Deep, soft shadow */
+    overflow: hidden; /* Crucial for rounded corners */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+}
+
+.education-hero-card:hover {
+    transform: translateY(-1rem); /* Subtle lift */
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.18); /* Enhanced shadow on hover */
+}
+
+.education-hero-card .image-header {
     width: 100%;
-    height: 25rem;
-  }
-
-  .education .box-container .box img {
-    width: 100%;
-  }
-
-  .education .box-container .box .content {
+    height: 35rem; /* Fixed height for the image header */
+    overflow: hidden;
     position: relative;
+    background-color: #eef1f5; /* Background if image doesn't fill */
+}
+
+.education-hero-card .image-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* IMPORTANT: Image covers the header, cropping if needed */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.education-hero-card:hover .image-header img {
+    transform: scale(1.03); /* Subtle zoom on image hover */
+}
+
+.education-hero-card .content-body {
+    padding: 4rem; /* Generous padding for content */
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    flex-wrap: wrap;
-    flex: 0;
-  }
-
-  .education .btns {
-    margin-top: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    flex-wrap: wrap;
-  }
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text within content body */
+    position: relative;
 }
-/* education media queries ends */
-/* education section ends */
 
+/* Logo placement: Slightly overlaps the image header */
+.education-hero-card .content-body .logo-area {
+    position: absolute;
+    top: -6rem; /* Adjust this value to control overlap */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: 12rem; /* Larger logo */
+    height: 12rem;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 5px solid #007bff; /* Vibrant blue border */
+    box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10; /* Ensure logo is on top */
+    transition: all 0.3s ease;
+}
+
+.education-hero-card:hover .content-body .logo-area {
+    transform: translateX(-50%) translateY(-0.5rem); /* Lift logo slightly on hover */
+}
+
+.education-hero-card .content-body .logo-area img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.education-hero-card .content-body .university-info-main {
+    margin-top: 5rem; /* Space to clear the overlapping logo */
+    width: 100%;
+}
+
+.education-hero-card .content-body .university-info-main h3 {
+    font-size: 3.5rem; /* Bold, clear heading */
+    color: #212529;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.education-hero-card .content-body .university-info-main .university-name {
+    font-size: 2rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.education-hero-card .content-body .university-info-main .study-period {
+    font-size: 2.2rem;
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.education-hero-card .content-body .university-info-main .extra-detail {
+    font-size: 1.8rem;
+    color: #7f8c8d;
+}
+
+.education-hero-card .content-body .modern-vision-highlight {
+    margin-top: 4rem;
+    border-top: 1px solid #e9ecef;
+    padding-top: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.education-hero-card .content-body .modern-vision-highlight h3 {
+    font-size: 2.3rem;
+    color: #343a40;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.education-hero-card .content-body .modern-vision-highlight p {
+    font-size: 1.7rem;
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .education-hero-card {
+        width: 90%;
+        max-width: 65rem;
+    }
+
+    .education-hero-card .image-header {
+        height: 30rem; /* Adjust image header height for smaller screens */
+    }
+
+    .education-hero-card .content-body {
+        padding: 3.5rem;
+    }
+
+    .education-hero-card .content-body .logo-area {
+        top: -5rem; /* Adjust overlap for smaller screens */
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .education-hero-card .content-body .university-info-main {
+        margin-top: 4rem;
+    }
+
+    .education-hero-card .content-body .university-info-main h3 {
+        font-size: 3rem;
+    }
+
+    .education-hero-card .content-body .university-info-main .university-name {
+        font-size: 1.8rem;
+    }
+
+    .education-hero-card .content-body .university-info-main .study-period {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .education .qoute {
+        font-size: 1.7rem;
+        margin-bottom: 4rem;
+    }
+
+    .education-hero-card .image-header {
+        height: 25rem; /* Further reduce image header height for mobile */
+    }
+
+    .education-hero-card .content-body {
+        padding: 2.5rem;
+    }
+
+    .education-hero-card .content-body .logo-area {
+        top: -4rem; /* Adjust for smaller logo */
+        width: 8rem;
+        height: 8rem;
+        border-width: 4px; /* Thinner border */
+    }
+
+    .education-hero-card .content-body .university-info-main {
+        margin-top: 3.5rem;
+    }
+
+    .education-hero-card .content-body .university-info-main h3 {
+        font-size: 2.6rem;
+    }
+
+    .education-hero-card .content-body .university-info-main .university-name {
+        font-size: 1.6rem;
+    }
+
+    .education-hero-card .content-body .university-info-main .study-period {
+        font-size: 1.8rem;
+    }
+
+    .education-hero-card .content-body .university-info-main .extra-detail {
+        font-size: 1.6rem;
+    }
+
+    .education-hero-card .content-body .modern-vision-highlight {
+        margin-top: 3rem;
+        padding-top: 2rem;
+    }
+
+    .education-hero-card .content-body .modern-vision-highlight h3 {
+        font-size: 2rem;
+    }
+
+    .education-hero-card .content-body .modern-vision-highlight p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .education .qoute {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .education-hero-card .image-header {
+        height: 20rem;
+    }
+    .education-hero-card .content-body {
+        padding: 2rem;
+    }
+    .education-hero-card .content-body .logo-area {
+        top: -3.5rem;
+        width: 7rem;
+        height: 7rem;
+    }
+    .education-hero-card .content-body .university-info-main {
+        margin-top: 3rem;
+    }
+    .education-hero-card .content-body .university-info-main h3 {
+        font-size: 2.2rem;
+    }
+    .education-hero-card .content-body .university-info-main .university-name {
+        font-size: 1.5rem;
+    }
+    .education-hero-card .content-body .university-info-main .study-period {
+        font-size: 1.7rem;
+    }
+}
 
 /* work section starts */
 .work {
@@ -861,343 +1004,251 @@ header .navbar ul li a::after {
 /* work section ends */
 
 /* experience section starts */
+.experience {
+    background: #f8fafd; /* Consistent background with education section */
+    min-height: 85vh;
+    padding: 6rem 0 8rem; /* Consistent padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience .heading {
+    margin-bottom: 3rem; /* Space below heading */
+    color: #34495e;
+}
+
+/* Remove traditional timeline styles */
 .experience .timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+    position: initial; /* Reset position */
+    max-width: initial; /* Reset max-width */
+    margin: initial; /* Reset margin */
 }
-.experience .timeline::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  background: #020133;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-  z-index: -2;
+
+.experience .timeline::after { /* Remove the main timeline line */
+    display: none;
 }
-.experience .container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
+
+.experience .container { /* Reset container styles */
+    padding: initial;
+    position: initial;
+    background-color: initial;
+    width: initial;
 }
-/*circles on timeline*/
-.experience .container::after {
-  content: "\f0b1";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: rgb(255, 255, 255);
-  border: 4px solid #ff9f55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 100;
-  font-size: 1.89rem;
-  text-align: center;
-  font-weight: 600;
-  color: #02094b;
-  font-family: "Font Awesome\ 5 Free";
+
+.experience .container::after, /* Remove circles on timeline */
+.experience .container::before { /* Remove arrows */
+    display: none;
 }
-.experience .left {
-  left: 0;
+
+/* New Grid for Experience Cards */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr)); /* Two columns, responsive */
+    gap: 3.5rem; /* Space between cards */
+    max-width: 120rem; /* Max width for the grid */
+    width: 92%; /* Responsive width */
+    margin-bottom: 6rem; /* Space before the view all button */
+    padding: 0 2rem; /* Inner padding for grid */
 }
-.experience .right {
-  left: 50%;
+
+.experience-card {
+    background: #ffffff;
+    border-radius: 1.5rem; /* Rounded corners */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+    display: flex; /* Flexbox for internal content */
+    flex-direction: column; /* Stack header and body */
+    padding: 3rem; /* Internal padding */
 }
-/* arrows pointing right */
-.experience .left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid #f68c09;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #f68c09;
+
+.experience-card:hover {
+    transform: translateY(-0.8rem); /* Lift effect on hover */
+    box-shadow: 0 1.5rem 4.5rem rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
-/* arrows pointing left  */
-.experience .right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid #f68c09;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #f68c09 transparent transparent;
+
+.experience-card .card-header {
+    display: flex;
+    justify-content: space-between; /* Company name left, duration right */
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef; /* Separator line */
 }
-.experience .right::after {
-  left: -16px;
+
+.experience-card .card-header h3 {
+    font-size: 2.8rem; /* Company name size */
+    color: #2c3e50; /* Darker color */
+    font-weight: 700;
 }
-.experience .content {
-  background-color: #f68c09;
-  position: relative;
-  border-radius: 6px;
+
+.experience-card .card-header .job-duration {
+    font-size: 1.6rem;
+    color: #6c757d;
+    font-weight: 500;
 }
-.experience .content .tag {
-  font-size: 1.3rem;
-  padding-top: 1.5rem;
-  padding-left: 1.5rem;
+
+.experience-card .card-body {
+    flex-grow: 1; /* Allows body to take remaining height */
 }
-.experience .content .desc {
-  margin-left: 1.5rem;
-  padding-bottom: 1rem;
+
+.experience-card .card-body h4 {
+    font-size: 2.2rem; /* Job title size */
+    color: #007bff; /* Accent color for job title */
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
-.experience .content .desc h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
+
+.experience-card .card-body ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
 }
-.experience .content .desc p {
-  font-size: 1.2rem;
+
+.experience-card .card-body ul li {
+    font-size: 1.7rem; /* List item text size */
+    color: #495057;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2.5rem; /* Space for custom bullet */
 }
-/* view all button */
+
+.experience-card .card-body ul li::before {
+    content: "\2022"; /* Unicode bullet point */
+    color: #28a745; /* Green accent color */
+    font-size: 2rem;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    font-weight: bold;
+}
+
+/* View All Button Styling (Updated) */
 .morebtn {
-  display: flex;
-  justify-content: center;
+    margin-top: 4rem; /* Adjust margin to separate from grid */
 }
+
 .morebtn .btn {
-  position: relative;
-  line-height: 0;
-  padding: 1.6rem 3rem;
-  border-radius: 0.5em;
-  transition: 0.5s;
-  color: #fff;
-  background: #2506ad;
-  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
-  text-align: center;
+    line-height: 1; /* Adjust line height for better button text centering */
+    padding: 1.8rem 3.5rem; /* Larger button padding */
+    border-radius: 0.8em; /* More rounded button */
+    color: #fff;
+    background: #007bff; /* Consistent blue accent */
+    box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.4); /* Softer, blue-tinted shadow */
+    transition: all 0.3s ease-in-out;
+    font-family: "Nunito", sans-serif; /* Ensure consistent font */
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    justify-content: center;
 }
+
 .morebtn .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem; /* Slightly larger text */
+    margin-right: 0.8rem; /* Space between text and icon */
 }
+
 .morebtn .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.5rem;
-  transition: 0.3s;
+    font-size: 1.6rem; /* Adjust icon size */
+    transition: transform 0.3s ease-in-out;
 }
+
 .morebtn .btn:hover {
-  background: #1a047e;
+    background: #0056b3; /* Darker blue on hover */
+    box-shadow: 0px 10px 20px rgba(0, 123, 255, 0.6); /* Stronger shadow on hover */
 }
+
 .morebtn .btn:hover i {
-  transform: translateX(5px);
+    transform: translateX(0.5rem); /* Move icon slightly on hover */
 }
 
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  animation: fadeIn 0.3s;
-}
-.modal-icon {
-  font-size: 3rem;
-  color: #2ecc71;
-  margin-bottom: 1rem;
-}
+/* Media Queries for Experience Grid */
+@media screen and (max-width: 992px) {
+    .experience-grid {
+        grid-template-columns: 1fr; /* Single column layout on tablets/mobiles */
+        gap: 3rem; /* Slightly less gap when stacked */
+        width: 90%; /* Adjust width */
+        max-width: 60rem; /* Max width for single column */
+    }
 
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 2rem;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-  text-align: center;
-  border-radius: 8px;
-  position: relative;
-  animation: slideDown 0.5s;
+    .experience-card {
+        padding: 2.5rem;
+    }
+
+    .experience-card .card-header h3 {
+        font-size: 2.6rem;
+    }
+
+    .experience-card .card-header .job-duration {
+        font-size: 1.5rem;
+    }
+
+    .experience-card .card-body h4 {
+        font-size: 2rem;
+    }
+
+    .experience-card .card-body ul li {
+        font-size: 1.6rem;
+    }
 }
 
-.modal-content h2 {
-  margin-bottom: 1rem;
-  color: #012970;
-}
-
-.modal-content p {
-  font-size: 1.4rem;
-}
-
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  color: #aaa;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.close-button:hover {
-  color: #000;
-}
-
-/* Spinner Styles */
-.spinner-overlay {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  justify-content: center;
-  align-items: center;
-}
-
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-/* Animations */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 2rem;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-  text-align: center;
-  border-radius: 8px;
-  position: relative;
-  animation: slideDown 0.5s;
-}
-
-.modal-content h2 {
-  margin-bottom: 1rem;
-  color: #012970;
-}
-
-.modal-content p {
-  font-size: 1.4rem;
-}
-
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  color: #aaa;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.close-button:hover {
-  color: #000;
-}
-
-/* Loading Spinner Styles */
-.spinner-overlay {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  justify-content: center;
-  align-items: center;
-}
-
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-/* Animations */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-
-/* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
-  .experience {
-    min-height: 80vh;
-  }
-  .experience .timeline {
-    margin-top: 2rem;
-  }
-  .experience .timeline::after {
-    left: 31px;
-  }
-  .experience .container {
-    width: 100%;
-    padding-left: 8rem;
-    padding-right: 2rem;
-  }
-  .experience .container::after {
-    font-size: 2.2rem;
-  }
-  .experience .container::before {
-    left: 61px;
-    border: medium solid #f68c09;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #f68c09 transparent transparent;
-  }
-  .experience .left::after {
-    left: 15px;
-  }
-  .experience .right::after {
-    left: 15px;
-  }
-  .experience .right {
-    left: 0%;
-  }
-  .morebtn {
-    margin-top: 3rem;
-  }
+    .experience .heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .experience-grid {
+        padding: 0 1.5rem; /* Smaller padding */
+        gap: 2.5rem;
+    }
+
+    .experience-card {
+        padding: 2rem;
+    }
+
+    .experience-card .card-header {
+        flex-direction: column; /* Stack company name and duration */
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .experience-card .card-header .job-duration {
+        margin-top: 0.5rem; /* Space below company name */
+        font-size: 1.4rem;
+    }
+
+    .experience-card .card-header h3 {
+        font-size: 2.4rem;
+    }
+
+    .experience-card .card-body h4 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .experience-card .card-body ul li {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        padding-left: 2rem;
+    }
+
+    .experience-card .card-body ul li::before {
+        font-size: 1.8rem;
+        top: 0;
+    }
+
+    .morebtn .btn {
+        padding: 1.5rem 3rem;
+    }
+
+    .morebtn .btn span {
+        font-size: 1.6rem;
+    }
 }
-/* experience media queries ends */
-/* experience section ends */
 
 /* contact section starts */
 .contact {
