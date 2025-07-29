@@ -67,7 +67,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.7rem 10%;
+  padding: 1rem 5%; /* Adjusted padding for better responsiveness */
   height: 6.5rem;
   background: #ffffff2e;
   box-shadow: 0 8px 32px 0 #1f26872e;
@@ -76,19 +76,23 @@ header {
   border-radius: 0 0 1.5rem 1.5rem;
   border: 1px solid #ffffff3d;
 }
+
 section {
   min-height: 100vh;
-  padding: 2rem 9%;
+  padding: 2rem 5%; /* Adjusted padding */
 }
+
 .heading {
   font-size: 3.5rem;
   color: rgb(32, 32, 32);
   font-weight: 800;
   text-align: center;
 }
+
 .heading span {
   color: rgb(115, 3, 167);
 }
+
 header .logo {
   font-size: 2.1rem;
   font-weight: 800;
@@ -99,9 +103,11 @@ header .logo {
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
 }
+
 header .logo i {
   font-size: 2.4rem;
 }
+
 header .logo:hover {
   color: #fc8c05;
   -webkit-text-fill-color: initial;
@@ -109,12 +115,15 @@ header .logo:hover {
 }
 
 /* Show menu icon only on mobile, hide on desktop */
-#menu, .menu-icon {
+#menu,
+.menu-icon {
   display: none !important;
 }
 
 @media (max-width: 900px) {
-  #menu, .menu-icon {
+  /* Smaller screens (tablets and mobiles) */
+  #menu,
+  .menu-icon {
     display: block !important;
     font-size: 2.8rem;
     color: #0e2431;
@@ -125,6 +134,7 @@ header .logo:hover {
     z-index: 1001;
     background: none;
   }
+
   header .navbar {
     display: none;
     position: absolute;
@@ -140,9 +150,11 @@ header .logo:hover {
     z-index: 999;
     transition: all 0.3s;
   }
+
   header .navbar.active {
     display: flex;
   }
+
   header .navbar ul {
     flex-direction: column;
     width: 100%;
@@ -151,9 +163,11 @@ header .logo:hover {
     padding: 0;
     backdrop-filter: none;
   }
+
   header .navbar li {
     margin: 1rem 0;
   }
+
   header .navbar ul li a,
   header .navbar ul li a.active,
   header .navbar ul li a:hover {
@@ -170,9 +184,11 @@ header .logo:hover {
 
 /* Navbar styles for desktop */
 @media (min-width: 901px) {
-  #menu, .menu-icon {
+  #menu,
+  .menu-icon {
     display: none !important;
   }
+
   header .navbar {
     display: flex !important;
     position: static;
@@ -190,9 +206,11 @@ header .navbar ul {
   justify-content: center;
   align-items: center;
 }
+
 header .navbar li {
   margin-left: 2.5rem;
 }
+
 header .navbar ul li a {
   font-size: 1.57rem;
   color: #0e2431;
@@ -205,6 +223,7 @@ header .navbar ul li a {
   background: transparent;
   position: relative;
 }
+
 header .navbar ul li a.active,
 header .navbar ul li a:hover {
   color: #ff7b00;
@@ -214,6 +233,7 @@ header .navbar ul li a:hover {
   padding: 0.7rem 1.2rem;
   position: relative;
 }
+
 header .navbar ul li a.active::after {
   content: "";
   display: block;
@@ -226,10 +246,12 @@ header .navbar ul li a.active::after {
   background: #ff7b00;
   opacity: 0.85;
 }
+
 header .navbar ul li a:hover::after {
   content: "";
   display: none;
 }
+
 header .navbar ul li a::after {
   content: "";
   display: none;
@@ -243,7 +265,10 @@ header .navbar ul li a::after {
   gap: 1.5rem;
   min-height: 100vh;
   align-items: center;
+  justify-content: center; /* Center content on larger screens */
+  text-align: left; /* Default text align */
 }
+
 .home #particles-js {
   position: absolute;
   top: 0;
@@ -251,6 +276,7 @@ header .navbar ul li a::after {
   height: 100%;
   width: 100%;
 }
+
 .home::before {
   content: "";
   position: absolute;
@@ -259,11 +285,14 @@ header .navbar ul li a::after {
   height: 100%;
   width: 100%;
 }
+
 .home .content {
   flex: 1 1 40rem;
   padding-top: 1rem;
   z-index: 1;
+  max-width: 50rem; /* Add a max-width to content for larger screens */
 }
+
 .home .image {
   flex: 1 1 40rem;
   z-index: 1;
@@ -271,48 +300,57 @@ header .navbar ul li a::after {
   align-items: center;
   justify-content: center;
 }
+
 .home .image img {
-  width: 440px;
-  height: 440px;
+  width: min(100%, 440px); /* Use min() for better flexibility, capping at 440px */
+  height: auto; /* Allow height to adjust proportionally */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18), 0 1.5px 8px rgba(44, 62, 80, 0.10);
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18),
+    0 1.5px 8px rgba(44, 62, 80, 0.1);
   border: 6px solid #fff;
   background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
   transition: box-shadow 0.3s, transform 0.3s;
   display: block;
   margin: 0 auto;
 }
+
 .home .image img:hover {
-  box-shadow: 0 16px 40px rgba(44, 62, 80, 0.22), 0 3px 16px rgba(44, 62, 80, 0.13);
+  box-shadow: 0 16px 40px rgba(44, 62, 80, 0.22),
+    0 3px 16px rgba(44, 62, 80, 0.13);
   transform: scale(1.04) rotate(-2deg);
 }
+
 .home .content h2 {
-  font-size: 5rem;
+  font-size: clamp(3rem, 5vw, 5rem); /* Responsive font size using clamp() */
   font-weight: 800;
   color: #002057;
 }
+
 .home .content h2 span {
-  font-size: 5rem;
+  font-size: inherit; /* Inherit font size from parent h2 */
   font-weight: 800;
   color: #ff7b00;
 }
+
 .home .content p {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem); /* Responsive font size */
   color: #000;
   font-weight: 600;
   padding: 1rem 0;
 }
+
 .home .content p span {
-  font-size: 2.5rem;
+  font-size: inherit; /* Inherit font size from parent p */
   color: rgb(148, 8, 8);
   font-weight: 600;
   padding: 1rem 0;
 }
+
 .home .btn {
   margin-top: 1rem;
-  position: absolute;
+  /* Removed position: absolute; to allow it to flow naturally with content */
   line-height: 0;
   padding: 1.6rem 3rem;
   border-radius: 4em;
@@ -321,37 +359,50 @@ header .navbar ul li a::after {
   background: #2506ad;
   box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
   font-family: "Nunito", sans-serif;
+  display: inline-block; /* Make it inline-block so margin-top works as expected */
 }
+
 .home .btn span {
   font-weight: 700;
   font-size: 1.7rem;
   letter-spacing: 0.1rem;
 }
+
 .home .btn i {
   margin-left: 0.3rem;
   font-size: 1.5rem;
   transition: 0.3s;
 }
+
 .home .btn:hover {
   background: #1a047e;
 }
+
 .home .btn:hover i {
   transform: translateX(5px);
 }
+
 /* social icons start */
 .socials {
-  position: relative;
-  margin-top: 9rem;
+  margin-top: 5rem; /* Adjusted margin for better spacing */
+  text-align: center; /* Center social icons on smaller screens */
 }
+
 .socials .social-icons {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  display: flex; /* Use flexbox to align icons */
+  justify-content: center; /* Center the icons */
+  flex-wrap: wrap; /* Allow icons to wrap if space is limited */
+  gap: 0.8rem; /* Add gap between icons */
 }
+
 .socials .social-icons li {
-  display: inline-block;
-  margin-bottom: 14px;
+  display: inline-block; /* Keep inline-block for consistency */
+  margin-bottom: 0; /* Removed margin-bottom as gap handles spacing */
 }
+
 .social-icons a {
   font-size: 2rem;
   display: inline-block;
@@ -361,51 +412,125 @@ header .navbar ul li a::after {
   width: 44px;
   height: 44px;
   text-align: center;
-  margin-right: 8px;
+  margin-right: 0; /* Removed margin-right as gap handles spacing */
   border-radius: 100%;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
   color: #fff;
   background-color: #0685da;
 }
+
 .social-icons a.github:hover {
   background-color: #0e0e0e;
 }
+
 .social-icons a.twitter:hover {
   background-color: #00aced;
 }
+
 .social-icons a.linkedin:hover {
   background-color: #007bb6;
 }
+
 .social-icons a.dev:hover {
   background-color: #070707;
 }
+
 .social-icons a.instagram:hover {
   background-color: #ee00da;
 }
+
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 450px) {
-  .home .btn {
-    margin: 4rem 0;
-  }
-  .socials {
-    margin-top: 12rem;
-  }
-  .home .image img {
-    margin-top: -12rem;
+@media (max-width: 768px) {
+  /* Added a new breakpoint for medium-sized screens */
+  .home .content h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
   }
   .home .content p {
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   }
-  .home .content p span {
-    font-size: 2.2rem;
+}
+
+@media (max-width: 600px) {
+  .home {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text on small screens */
+    gap: 2rem;
+    padding-top: 8rem; /* Adjust padding for fixed header */
+  }
+
+  .home .image {
+    order: -1; /* Move image above content on small screens */
+  }
+
+  .home .image img {
+    width: 90vw;
+    max-width: 360px;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .home .content {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .home .btn {
+    margin: 2rem auto; /* Center button on small screens */
+    position: static; /* Ensure button flows with content */
+  }
+
+  .socials {
+    margin-top: 3rem; /* Further adjust margin for small screens */
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    padding: 1rem 3%; /* Further reduce padding for very small screens */
+    height: 5.5rem; /* Slightly smaller header on very small screens */
+  }
+
+  .heading {
+    font-size: 2.8rem; /* Smaller heading on very small screens */
+  }
+
+  header .logo {
+    font-size: 1.8rem; /* Smaller logo on very small screens */
+  }
+
+  header .logo i {
+    font-size: 2.1rem;
+  }
+
+  .home .btn {
+    margin: 3rem auto; /* Adjusted margin */
+  }
+
+  .socials {
+    margin-top: 2rem; /* Reduced margin */
+  }
+
+  .home .image img {
+    margin-top: 0; /* Reset margin top for very small screens */
+    width: 96vw;
+    max-width: 280px; /* Slightly adjusted max-width */
+  }
+
+  .home .content h2 {
+    font-size: clamp(2rem, 8vw, 3rem); /* Smaller font for smallest screens */
+  }
+
+  .home .content p {
+    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Smaller font for smallest screens */
   }
 }
 /* hero media queries ends*/
@@ -1404,6 +1529,91 @@ form .button-area {
     margin-right: 2rem;
   }
 }
+/* Loading Spinner Overlay */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinner Animation */
+.spinner {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #2506ad; /* Accent color */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 10000;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Modal hidden by default */
+.modal[style*="display: none"] {
+  display: none !important;
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #2506ad;
+  font-weight: bold;
+}
+
+/* Modal icon */
+.modal-icon i {
+  font-size: 50px;
+  color: #28a745; /* green check */
+  margin-bottom: 1rem;
+}
+
+/* Modal heading and text */
+.modal h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #2506ad;
+}
+
+.modal p {
+  font-size: 1rem;
+  color: #444;
+}
+
 /* contact section media queries ends */
 /* contact section ends */
 
