@@ -1,93 +1,69 @@
 [
-  {
-    "name": "GiveMM – Charity Crowdfunding Platform",
-    "desc": "Full-stack web application for fundraising campaigns with local and international payment integrations and real-time progress tracking.",
-    "image": "donation",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/ITVHBaseCode/Givemm",
-      "code": "https://github.com/ITVHBaseCode/Givemm"
+    {
+        "name": "GiveMM – Charity Crowdfunding Platform",
+        "desc": "A full-stack Laravel web application that empowers users to create and manage charity fundraising campaigns. Features include secure local (KPay, WavePay) and international (Stripe) donation processing, real-time progress tracking, role-based access control for admins and users, and a clean UI built with Blade and Bootstrap.",
+        "image": "mm_give",
+        "category": "web",
+        "technologies": ["Laravel", "MySQL","Docker","Redis", "Stripe", "Bootstrap"],
+        "links": {
+            "view": "https://github.com/ITVHBaseCode/Givemm",
+            "code": "https://github.com/ITVHBaseCode/Givemm"
+        }
+    },
+    {
+        "name": "Daily Fair Deal",
+        "desc": "A multi-service marketplace platform that combines food delivery, e-commerce, and ride-hailing with real-time features like driver tracking. Developed with a modular structure supporting vendors, customers, and drivers. Includes Stripe, WavePay, and KPay payments and real-time Socket.IO communication.",
+        "image": "rideandsavor",
+        "category": "web",
+        "technologies": ["Laravel", "PHP", "MySQL", "Stripe", "REST API","Redis","Postman"],
+        "links": {
+            "view": "https://dailyfairdeal.com/",
+            "code": "https://github.com/RideAndSavor/rideAndSavor"
+        }
+    },
+    {
+        "name": "Real Estate Management System",
+        "desc": "A backend-driven property management platform using Laravel and RESTful APIs. Includes secure user registration, Google/Facebook social logins, property posting, booking system, and review/rating features. APIs are secured with JWT and Laravel Passport.",
+        "image": "realestate",
+        "category": "web",
+        "technologies": ["Laravel", "REST API", "JWT", "MySQL", "Postman"],
+        "links": {
+            "view": "https://github.com/Daily-activities/Real-Estate-Project",
+            "code": "https://github.com/Daily-activities/Real-Estate-Project"
+        }
+    },
+    {
+        "name": "Yummy Restaurant System",
+        "desc": "A scalable restaurant management platform built with PHP and MySQL. Enables customers to browse categorized menus, add items to a cart, and place orders. Admin dashboard includes full CRUD operations for menu, user, and order management using an intuitive AdminLTE interface.",
+        "image": "yummy",
+        "category": "web",
+        "technologies": ["Pure PHP", "MySQL", "jQuery", "Bootstrap", "Ajax"],
+        "links": {
+            "view": "https://github.com/kayzinkhaing/Restaurant-",
+            "code": "https://github.com/kayzinkhaing/Restaurant-"
+        }
+    },
+    {
+        "name": "Media Library",
+        "desc": "A Laravel-based content management system for books, movies, and music. Offers user registration, media categorization, advanced search functionality, and an admin panel for content moderation and CRUD management. Built with Blade templating and Bootstrap.",
+        "image": "media",
+        "category": "web",
+        "technologies": ["Laravel", "MySQL", "Blade", "Bootstrap", "Authentication"],
+        "links": {
+            "view": "https://github.com/kayzinkhaing/Media-Library",
+            "code": "https://github.com/kayzinkhaing/Media-Library"
+        }
+    },
+    {
+        "name": "Job Board",
+        "desc": "A job listing and application portal using Laravel, Livewire, and Tailwind CSS. Users can register, post jobs, and apply, while admins manage listings. Features include authentication with Laravel Fortify and dynamic interactivity using Livewire.",
+        "image": "job",
+        "category": "web",
+        "technologies": ["Laravel", "Livewire", "Tailwind CSS", "MySQL"],
+        "links": {
+            "view": "https://github.com/kayzinkhaing/Job_Board",
+            "code": "https://github.com/kayzinkhaing/Job_Board"
+        }
     }
-  },
-  {
-    "name": "Daily Fair Deal",
-    "desc": "Multi-service marketplace integrating food delivery, e-commerce, ride-hailing, real-time location tracking, and Stripe payment system.",
-    "image": "daily fair deal",
-    "category": "web",
-    "links": {
-      "view": "https://dailyfairdeal.com/",
-      "code": "https://github.com/RideAndSavor/rideAndSavor"
-    }
-  },
-  {
-    "name": "Real Estate Management System",
-    "desc": "Backend system with property management, user registration, booking, reviews, social login, and secure RESTful APIs with token-based authentication.",
-    "image": "realestate",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/Daily-activities/Real-Estate-Project",
-      "code": "https://github.com/Daily-activities/Real-Estate-Project"
-    }
-  },
-  {
-    "name": "Yummy Restaurant System",
-    "desc": "A scalable restaurant management platform with online ordering for customers and an admin dashboard for menu, user, and order management.",
-    "image": "restaurant",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/Restaurant",
-      "code": "https://github.com/kayzinkhaing/Restaurant"
-    }
-  },
-  {
-    "name": "Media Library",
-    "desc": "A media library system for managing books, movies, and music with user registration, search functionality, and admin controls.",
-    "image": "medialibrary",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/MediaLibrary",
-      "code": "https://github.com/kayzinkhaing/MediaLibrary"
-    }
-  },
-  {
-    "name": "Book Reviews",
-    "desc": "A book review platform with user authentication, book management, and a review system for users to share their thoughts on books.",
-    "image": "bookreviews",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/Book-reviews",
-      "code": "https://github.com/kayzinkhaing/Book-reviews"
-    }
-  },
-  {
-    "name": "Event Management System",
-    "desc": "A comprehensive event management platform with user registration, event creation, ticket booking, and admin controls for managing events.",
-    "image": "eventmanagement",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/Event-Management",
-      "code": "https://github.com/kayzinkhaing/Event-Management"
-    }
-  },
-
-  {
-    "name": "E-commerce Project",
-    "desc": "A full-stack e-commerce application with user authentication, product management, and a shopping cart system.",
-    "image": "ecommerce",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/Ecommerce-Project",
-      "code": "https://github.com/kayzinkhaing/Ecommerce-Project"
-    }
-  },
-  {
-    "name": "Job Board",
-    "desc": "A job board platform for posting and applying for jobs with user authentication, job management, and application tracking.",
-    "image": "jobboard",
-    "category": "web",
-    "links": {
-      "view": "https://github.com/kayzinkhaing/Job_Board",
-      "code": "https://github.com/kayzinkhaing/Job_Board"
-    }
-  }
 ]
+

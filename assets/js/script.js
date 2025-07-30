@@ -112,62 +112,79 @@ async function fetchData(type = "skills") {
 }
 
 function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
-    skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
-    });
-    skillsContainer.innerHTML = skillHTML;
+  let skillsContainer = document.getElementById("skillsContainer");
+  let skillHTML = "";
+  skills.forEach(skill => {
+    skillHTML += `
+      <div class="bar">
+        <div class="info">
+          <img src="${skill.icon}" alt="${skill.name}" />
+          <span>${skill.name}</span>
+        </div>
+      </div>`;
+  });
+  skillsContainer.innerHTML = skillHTML;
 }
 
+
 function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+  const projectsContainer = document.querySelector("#work .project-grid");
+  if (!projectsContainer) return;
+
+  // No filtering, show all projects
+  const projectHTML = projects.map(project => `
+    <div class="project-card tilt" tabindex="0" aria-label="${project.name} project">
+      <img 
+        src="/assets/images/projects/${project.image}.png" 
+        alt="${project.name} project image" 
+        draggable="false" 
+        loading="lazy"
+      />
       <div class="content">
         <div class="tag">
-        <h3>${project.name}</h3>
+          <h3>${project.name}</h3>
         </div>
         <div class="desc">
           <p>${project.desc}</p>
+          <div class="technologies">
+            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+          </div>
           <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+            <a href="${project.links.view}" class="btn" target="_blank" rel="noopener">
+              <i class="fas fa-eye"></i> View
+            </a>
+            <a href="${project.links.code}" class="btn" target="_blank" rel="noopener">
+              Code <i class="fas fa-code"></i>
+            </a>
           </div>
         </div>
       </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
+    </div>
+  `).join("");
 
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
+  projectsContainer.innerHTML = projectHTML;
 
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
+  // Tilt effect
+  VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+  });
 
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
+  // Scroll reveal animation
+  const srtop = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 1000,
+    reset: false
+  });
 
+  srtop.reveal('.work .project-card', { interval: 200 });
 }
 
+
+// Load skills and projects
 fetchData().then(data => {
     showSkills(data);
 });
@@ -175,6 +192,7 @@ fetchData().then(data => {
 fetchData("projects").then(data => {
     showProjects(data);
 });
+
 
 // <!-- tilt js effect starts -->
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -262,7 +280,7 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 srtop.reveal('.education .box', { interval: 200 });
 
 /* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
+srtop.reveal('.work .project-card', { interval: 200 });
 
 /* SCROLL EXPERIENCE */
 srtop.reveal('.experience .timeline', { delay: 400 });
