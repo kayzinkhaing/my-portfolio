@@ -131,11 +131,10 @@ function showProjects(projects) {
   const projectsContainer = document.querySelector("#work .project-grid");
   if (!projectsContainer) return;
 
-  // No filtering, show all projects
   const projectHTML = projects.map(project => `
     <div class="project-card tilt" tabindex="0" aria-label="${project.name} project">
       <img 
-        src="/assets/images/projects/${project.image}.png" 
+        src="./assets/images/projects/${project.image}" 
         alt="${project.name} project image" 
         draggable="false" 
         loading="lazy"
@@ -183,22 +182,20 @@ function showProjects(projects) {
   srtop.reveal('.work .project-card', { interval: 200 });
 }
 
-
 // Load skills and projects
 fetchData().then(data => {
-    showSkills(data);
+  showSkills(data);
 });
 
 fetchData("projects").then(data => {
-    showProjects(data);
+  showProjects(data);
 });
 
-
-// <!-- tilt js effect starts -->
+// Tilt js fallback
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
+  max: 15,
 });
-// <!-- tilt js effect ends -->
+
 
 
 // pre loader start
@@ -230,17 +227,6 @@ document.onkeydown = function (e) {
     }
 }
 
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
 
 
 /* ===== SCROLL REVEAL ANIMATION ===== */

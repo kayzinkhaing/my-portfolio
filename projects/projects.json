@@ -2,7 +2,7 @@
     {
         "name": "GiveMM – Charity Crowdfunding Platform",
         "desc": "A full-stack Laravel web application that empowers users to create and manage charity fundraising campaigns. Features include secure local (KPay, WavePay) and international (Stripe) donation processing, real-time progress tracking, role-based access control for admins and users, and a clean UI built with Blade and Bootstrap.",
-        "image": "mm_give",
+        "image": "mm_give.png",
         "category": "web",
         "technologies": ["Laravel", "MySQL","Docker","Redis", "Stripe", "Bootstrap"],
         "links": {
@@ -13,7 +13,7 @@
     {
         "name": "Daily Fair Deal",
         "desc": "A multi-service marketplace platform that combines food delivery, e-commerce, and ride-hailing with real-time features like driver tracking. Developed with a modular structure supporting vendors, customers, and drivers. Includes Stripe, WavePay, and KPay payments and real-time Socket.IO communication.",
-        "image": "rideandsavor",
+        "image": "rideandsavor.png",
         "category": "web",
         "technologies": ["Laravel", "PHP", "MySQL", "Stripe", "REST API","Redis","Postman"],
         "links": {
@@ -24,7 +24,7 @@
     {
         "name": "Real Estate Management System",
         "desc": "A backend-driven property management platform using Laravel and RESTful APIs. Includes secure user registration, Google/Facebook social logins, property posting, booking system, and review/rating features. APIs are secured with JWT and Laravel Passport.",
-        "image": "realestate",
+        "image": "realestate.png",
         "category": "web",
         "technologies": ["Laravel", "REST API", "JWT", "MySQL", "Postman"],
         "links": {
@@ -35,7 +35,7 @@
     {
         "name": "Yummy Restaurant System",
         "desc": "A scalable restaurant management platform built with PHP and MySQL. Enables customers to browse categorized menus, add items to a cart, and place orders. Admin dashboard includes full CRUD operations for menu, user, and order management using an intuitive AdminLTE interface.",
-        "image": "yummy",
+        "image": "yummy.png",
         "category": "web",
         "technologies": ["Pure PHP", "MySQL", "jQuery", "Bootstrap", "Ajax"],
         "links": {
@@ -46,7 +46,7 @@
     {
         "name": "Media Library",
         "desc": "A Laravel-based content management system for books, movies, and music. Offers user registration, media categorization, advanced search functionality, and an admin panel for content moderation and CRUD management. Built with Blade templating and Bootstrap.",
-        "image": "media",
+        "image": "media.png",
         "category": "web",
         "technologies": ["Laravel", "MySQL", "Blade", "Bootstrap", "Authentication"],
         "links": {
@@ -57,7 +57,7 @@
     {
         "name": "Job Board",
         "desc": "A job listing and application portal using Laravel, Livewire, and Tailwind CSS. Users can register, post jobs, and apply, while admins manage listings. Features include authentication with Laravel Fortify and dynamic interactivity using Livewire.",
-        "image": "job",
+        "image": "job.png",
         "category": "web",
         "technologies": ["Laravel", "Livewire", "Tailwind CSS", "MySQL"],
         "links": {
