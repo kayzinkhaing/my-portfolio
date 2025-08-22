@@ -24,6 +24,10 @@
     "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
   },
   {
+    "name": "TypeScript",
+    "icon": "https://img.icons8.com/color/48/000000/typescript.png"
+  },
+  {
     "name": "jQuery",
     "icon": "https://img.icons8.com/ios-filled/48/1169ae/jquery.png"
   },
@@ -52,12 +56,24 @@
     "icon": "https://img.icons8.com/color/48/000000/mysql.png"
   },
   {
-    "name": "PostgreSQL",
-    "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
+    "name": "MongoDB",
+    "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
   },
   {
-    "name": "dbdiagram.io",
-    "icon": "https://iconape.com/wp-content/png_logo_vector/dbdiagram-io-logo.png"
+    "name": "GraphQL",
+    "icon": "https://img.icons8.com/color/48/000000/graphql.png"
+  },
+  {
+    "name": "RabbitMQ",
+    "icon": "https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg"
+  },
+  {
+    "name": "Vite",
+    "icon": "https://vitejs.dev/logo.svg"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
   },
   {
     "name": "Docker",
