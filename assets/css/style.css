@@ -67,7 +67,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 5%; /* Adjusted padding for better responsiveness */
+  /* CHANGE THIS LINE */
+  padding: 1rem 8%; /* Increased left padding (the second value is applied to left/right) */
+  /* If you want different left/right padding, use four values: top right bottom left */
+  /* Example for more control: padding: 1rem 5% 1rem 8%; */ 
   height: 6.5rem;
   background: #ffffff2e;
   box-shadow: 0 8px 32px 0 #1f26872e;
@@ -83,35 +86,51 @@ section {
 }
 
 .heading {
-  font-size: 3.5rem;
-  color: rgb(32, 32, 32);
-  font-weight: 800;
-  text-align: center;
+    /* Main heading text style */
+    font-size: 4rem; 
+    color: #420177; /* Deeper professional color */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem; /* <-- THIS IS WHAT WE CHANGE */
+    text-transform: uppercase; 
+    letter-spacing: 0.2rem;
 }
 
 .heading span {
-  color: rgb(115, 3, 167);
+    /* Style for the colored part of the heading (e.g., "Me") */
+    color: #e66d00; /* NEW ACCENT COLOR: Rich Orange */
+    font-weight: 900;
+}
+
+/* Style the icon within the heading */
+.heading i {
+    color: #e66d00; /* Match the icon color to the accent span color */
+    margin-right: 1.5rem; 
 }
 
 header .logo {
-  font-size: 2.1rem;
-  font-weight: 800;
-  text-decoration: none;
-  color: #0e2431;
-  letter-spacing: 0.05em;
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
+    /* Change the color of the name and the size */
+    font-size: 2.3rem; /* Slightly larger text */
+    font-weight: 700; /* Slightly less bold */
+    text-decoration: none;
+    color: #420177; /* Changed to a dark purple/blue from your scrollbar track */
+    letter-spacing: 0.08em; /* Increased spacing for a polished look */
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
 }
 
 header .logo i {
-  font-size: 2.4rem;
+    /* The icon size */
+    font-size: 2.6rem; /* Slightly larger icon */
+    color: #420177; /* Match the icon color to the text color */
 }
 
 header .logo:hover {
-  color: #fc8c05;
-  -webkit-text-fill-color: initial;
-  background: none;
+    /* Hover effect */
+    color: #ff7b00; /* Orange accent on hover */
+    -webkit-text-fill-color: initial;
+    background: none;
 }
 
 /* Show menu icon only on mobile, hide on desktop */
@@ -379,26 +398,47 @@ header .navbar ul li a::after {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+/* Default active/focus/hover state (the fallback blue) */
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
   color: #fff;
   background-color: #0685da;
 }
+
+/* Specific Overrides */
 .social-icons a.github:hover {
   background-color: #0e0e0e;
 }
-.social-icons a.twitter:hover {
-  background-color: #00aced;
+
+/* UPDATED: Facebook Hover Color */
+.social-icons a.facebook:hover {
+  background-color: #3b5998; /* Classic Facebook Blue */
 }
+
 .social-icons a.linkedin:hover {
   background-color: #007bb6;
 }
+
+/* If you are keeping Twitter, use this: */
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+
+/* If you removed Twitter and added Facebook, ensure this specific rule for twitter is removed or commented out if you don't have a twitter link */
+
+
 .social-icons a.dev:hover {
   background-color: #070707;
 }
+
 .social-icons a.instagram:hover {
   background-color: #ee00da;
+}
+
+/* NEW: Website Icon Hover Color */
+.social-icons a.website:hover {
+    background-color: #e66d00; /* Rich Orange from Heading */
 }
 /* social icons end */
 
@@ -423,116 +463,101 @@ header .navbar ul li a::after {
 /* hero media queries ends*/
 /* hero section end */
 
-/* about section starts */
+/* ================= About Section ================= */
 .about {
-  background: rgb(255, 255, 255);
+    background: #ffffff; 
+    padding: 6rem 5%; 
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
 }
+
 .about .row {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem; 
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 0;
 }
+
+/* Profile Image */
 .about .row .image {
-  text-align: center;
-  flex: 1 1 35rem;
+    flex: 1 1 35rem;
+    text-align: center;
 }
+
 .about .row .image img {
-  margin: 4rem;
-  width: 30rem;
-  height: auto;
-  border-radius: 3%;
-  transition: 0.3s;
-  cursor: pointer;
+    width: 30rem;
+    height: auto;
+    border-radius: 10px; 
+    transition: transform 0.3s ease;
 }
+
 .about .row .image img:hover {
-  mix-blend-mode: normal;
+    transform: translateY(-5px);
 }
+
+/* Content */
+/* Content area layout (next to the image) */
 .about .row .content {
-  flex: 1 1 45rem;
-  padding: 3rem;
+    flex: 1 1 45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* Keeps your vertical spacing */
+    padding: 0; /* Removing padding as it seems to be inherited from the row */
 }
+
+/* Name (H3) Styling */
 .about .row .content h3 {
-  color: rgb(27, 27, 27);
-  font-size: 2.9rem;
-}
+    font-size: 3.2rem; /* Slightly larger and bolder name */
+    font-weight: 800;
+    color: #420177; /* Using the darker purple accent */
+    letter-spacing: 0.05px; /* Reduced spacing for a tighter look */
+    margin-bottom: 0.5rem; /* Adding a small margin below the name */
+} 
+
+/* Job Title (Tag) Styling */
 .about .row .content .tag {
-  font-size: 1.8rem;
-  color: #020133;
-  font-weight: 600;
-  margin-top: 1rem;
+    font-size: 1.7rem; /* Slightly larger */
+    color: #ff7b00; /* Using your chosen orange accent color */
+    font-weight: 600;
+    display: block; /* Changed to block for better separation from H3 */
+    margin-bottom: 2rem; /* Increased space after the tag */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0; /* Subtle line under the title */
 }
+
+/* Paragraphs Styling */
 .about .row .content p {
-  font-size: 1.7rem;
-  margin-top: 1.5rem;
-  font-family: "Inter";
-  font-weight: 300;
-  text-transform: none;
+    font-size: 1.65rem; /* Slightly larger for readability */
+    line-height: 1.8; /* Tighter line height */
+    color: #333333; /* Darker, more readable text color */
+    font-weight: 400;
+    margin-bottom: 1.8rem; /* More space between paragraphs */
 }
-.about .row .content .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  font-family: "Nunito";
-  font-weight: 600;
+
+/* Responsive Adjustments */
+@media screen and (max-width: 900px) {
+    .about .row {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        /* Keeping text-align: center from your original code for mobile consistency */
+        text-align: center; 
+    }
+    .about .row .image img {
+        width: 70%; /* Slightly reduced width to match what we discussed earlier */
+        min-width: 250px;
+    }
+    .about .row .content {
+        padding: 0 1rem; /* Ensure padding on mobile content */
+    }
+    /* Ensure tag is centered on mobile if it's block */
+    .about .row .content .tag {
+        text-align: center;
+    }
 }
-.about .row .content .box-container .box p {
-  text-transform: none;
-}
-.about .row .content .box-container .box p span {
-  color: #011aff;
-}
-.resumebtn {
-  margin-top: 6rem;
-}
-.resumebtn .btn {
-  padding: 1.7rem 3rem;
-  border-radius: 0.5em;
-  transition: 0.3s;
-  color: #fff;
-  background:#1c1c5b;
-  box-shadow: 0px 5px 10px #7070e0;
-  font-family: "Nunito", sans-serif;
-}
-.resumebtn .btn span {
-  font-weight: 600;
-  font-size: 1.8rem;
-  letter-spacing: 0.1rem;
-}
-.resumebtn .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-.resumebtn .btn:hover {
-  background:blue;
-}
-.resumebtn .btn:hover i {
-  transform: translateX(5px);
-}
-/* about media queries starts*/
-@media screen and (max-width: 600px) {
-  .about .row .image {
-    margin-top: 2rem;
-  }
-  .about .row .image img {
-    margin: 0 auto;
-    width: 80%;
-    mix-blend-mode: normal;
-  }
-  .about .row {
-    padding: 0.5rem;
-    margin-bottom: 7rem;
-  }
-  .about .row .content {
-    padding: 1rem;
-  }
-  .about .row .content .box-container {
-    gap: 0;
-  }
-}
-/* about media queries ends*/
+
+
 /* about section ends */
 
 /* SKILLS SECTION - GLASS UI */
@@ -541,23 +566,6 @@ header .navbar ul li a::after {
   padding: 6rem 2rem;
   background: linear-gradient(to bottom, #0f0f23, #1a1a40);
   color: #fff;
-}
-
-.skills .heading {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  color: #00ffff; /* Changed heading color */
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-.skills .heading:hover {
-  color: #ff7b00; /* Color on hover */
-}
-
-.skills .heading span {
-  color: #00ffff;
 }
 
 /* Ensure hover works on touch devices */
@@ -642,10 +650,7 @@ header .navbar ul li a::after {
     justify-content: center;
 }
 
-.education .heading {
-    margin-bottom: 2rem;
-    color: #34495e; /* Darker heading */
-}
+
 
 .education .qoute {
     font-size: 1.9rem;
@@ -924,21 +929,6 @@ header .navbar ul li a::after {
 }
 
 /* GLASS UI - Improved contrast for readability */
-.work .heading {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  color: #e9e9eeff; /* Much darker for contrast */
-  text-shadow: 0 2px 12px rgba(60,60,120,0.18);
-}
-
-.work .heading span {
-  color: #f18e02ff; /* Darker accent */
-  text-shadow: 0 1px 8px rgba(60,60,120,0.25);
-}
-
-
 
 /* experience section starts */
 .experience {
@@ -949,11 +939,6 @@ header .navbar ul li a::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.experience .heading {
-    margin-bottom: 3rem; /* Space below heading */
-    color: #34495e;
 }
 
 /* Remove traditional timeline styles */
@@ -1508,12 +1493,13 @@ header .navbar ul li a::after {
 
 
         .current-projects .progress-fill {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            height: 100%;
-            width: 75%;
-            border-radius: 5px;
-            animation: currentProjectProgressLoad 2s ease-out;
-        }
+          background: linear-gradient(135deg, #22c55e, #16a34a); /* Light → Deep green */
+          height: 100%;
+          width: 95%;
+          border-radius: 5px;
+          animation: currentProjectProgressLoad 2s ease-out;
+      }
+
 
 
         @keyframes currentProjectProgressLoad {
@@ -1527,6 +1513,7 @@ header .navbar ul li a::after {
             font-size: 1.5rem;
             line-height: 1.6;
         }
+        
 
 
         /* ===== COMPLETED PROJECTS GRID ===== */
@@ -1675,9 +1662,29 @@ header .navbar ul li a::after {
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
             /* Current Projects Mobile */
-            .current-projects .section-heading h2 {
-                font-size: 2.5rem;
-            }
+            /* Section Heading Styling */
+.current-projects .section-heading h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #420177;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+.current-projects .section-heading h2 span {
+    color: #e66d00;
+    font-weight: 900;
+}
+
+.current-projects .section-heading i {
+    color: #e66d00;
+    margin-right: 1rem;
+}
+
+
+
+
+
 
 
             .current-projects .project-header h3 {
@@ -2102,7 +2109,7 @@ form .button-area {
 /* contact section media queries ends */
 /* contact section ends */
 
-/* footer section starts */
+/* Original rules (make minor adjustments) */
 .footer {
   min-height: auto;
   padding-top: 0;
@@ -2112,11 +2119,11 @@ form .button-area {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-left:9em;
-
+  /* REMOVING EXCESSIVE LEFT PADDING */
+  padding: 2rem 2rem; /* Add some consistent padding instead of fixed left padding */
 }
 .footer .box-container .box {
-  flex: 1 1 25rem;
+  flex: 1 1 25rem; /* Keep this for desktop, it will be overridden on mobile */
   margin: 2.5rem;
 }
 .footer .box-container .box h3 {
@@ -2186,6 +2193,19 @@ form .button-area {
   font-size: 1.5rem;
   animation: pound 0.35s infinite alternate;
 }
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Apply the animation */
+.credit .animated-heart {
+    animation: heartBeat 1.5s infinite; /* Slow, continuous beat */
+}
 @-webkit-keyframes pound {
   to {
     transform: scale(1.1);
@@ -2196,18 +2216,43 @@ form .button-area {
     transform: scale(1.1);
   }
 }
+/* --- UPDATED MEDIA QUERY --- */
 @media (max-width: 450px) {
+  /* Force boxes to stack vertically on small screens */
+  .footer .box-container {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
   .footer .box-container .box {
-    margin: 1.5rem;
+    margin: 1.5rem 1rem; /* Reduce margin slightly when stacked */
+    text-align: center; /* Center all text inside the box */
+    width: 100%; /* Ensure box takes full available width */
+    max-width: 350px; /* Optional: Keep content from getting too wide on large tablets */
   }
+
+  .footer .box-container .box h3 {
+      font-weight: 700; /* Make titles bolder on mobile */
+  }
+
   .footer .box-container .box p {
-    padding: 0.7rem;
+    /* Adjustments for contact info alignment */
+    padding: 0.7rem 0; 
   }
+  
+  .footer .box-container .box p i {
+      margin-right: 1rem;
+  }
+
+  .footer .box-container .box .share {
+    justify-content: center; /* Center social icons horizontally */
+    padding: 1rem 0;
+  }
+
   .footer .box-container .box .share a {
-    padding: 1.2rem;
+    padding: 1.2rem; /* Keep size, adjusted padding from original */
   }
 }
-/* footer section ends */
 
 /* common media queries starts*/
 @media (max-width: 450px) {
