@@ -14,7 +14,7 @@
     <link id='favicon' rel="shortcut icon" href="./assets/images/profile1.png" type="image/x-png">
     <title>Portfolio | Kay Zin Khaing</title>
 </head>
-<body oncontextmenu="return false">
+<body oncontextmenu="return true">
 <!-- navbar starts -->
 <header>
   <a href="#home" class="logo"><i class="fas fa-code"></i> Kay Zin Khaing</a>
@@ -26,6 +26,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Current Projects</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Hire Me</a></li>
@@ -145,174 +146,202 @@
 </section>
 <!-- education section ends -->
 
-<section class="current-projects">
-    <div class="section-heading">
-        <h2>Currently Working Project</h2>
-        <p class="subtitle">Building the future, one line of code at a time</p>
+<section class="current-projects-section" id="projects">
+    <div class="detailed-heading-container">
+        <h2 class="detailed-heading"><i class="fas fa-project-diagram"></i> Currently Working Projects</h2>
+        <p class="subtitle">Detailed flow, architecture & roadmap for live and upcoming systems</p>
     </div>
 
-    <div class="project-container">
+    <div class="detailed-project-grid">
+        
+      
+      <article class="project-container project-card-2">
         <div class="project-header">
-            <div class="project-status">
-                <div class="status-indicator"></div>
-                <span>Live on Production</span>
-            </div>
-            <h3>CQRS Clean Portfolio Architecture</h3>
-            <p>A modern full-stack blogging platform implementing CQRS architecture with advanced separation of read and write operations for optimal performance and scalability.</p>
+          <div class="project-status development">
+            <div class="status-indicator"></div>
+            <span>In Development</span>
+          </div>
+          <h3>ItVisionHub — Training Management System (SRS)</h3>
+          <p>6-month in-class training management platform to run ItVisionHub: course management, attendance, assignments, interview prep and job placement support.</p>
         </div>
-
+        
         <div class="project-content">
-            <div class="tech-stack">
-                <div class="tech-tag">
-                    <i class="fab fa-vuejs"></i>
-                    Vue 3
-                </div>
-                <div class="tech-tag">
-                    <i class="fab fa-laravel"></i>
-                    Laravel
-                </div>
-                <div class="tech-tag">
-                    <i class="fas fa-database"></i>
-                    MySQL
-                </div>
-                <div class="tech-tag">
-                    <i class="fas fa-leaf"></i>
-                    MongoDB
-                </div>
-                <div class="tech-tag">
-                    <i class="fas fa-exchange-alt"></i>
-                    RabbitMQ
-                </div>
-                <div class="tech-tag">
-                    <i class="fas fa-code-branch"></i>
-                    GraphQL
-                </div>
-                <div class="tech-tag">
-                    <i class="fab fa-docker"></i>
-                    Docker
-                </div>
+          <div class="tech-stack">
+            <div class="tech-tag secondary"><i class="fab fa-vuejs"></i> Vue.js</div>
+            <div class="tech-tag secondary"><i class="fab fa-laravel"></i> Laravel</div>
+            <div class="tech-tag secondary"><i class="fas fa-database"></i> MySQL</div>
+            <div class="tech-tag secondary"><i class="fab fa-docker"></i> Docker</div>
+            <div class="tech-tag secondary"><i class="fas fa-truck-loading"></i> CI/CD</div>
+          </div>
+          
+          <div class="collapsible-details" data-state="collapsed">
+            <div class="project-description">
+              <div class="description-section">
+                <h4><i class="fas fa-info-circle"></i> Overview & Objectives</h4>
+                <p>ItVisionHub is a 6-month, hands-on in-class program designed to turn learners into job-ready senior developers. Objectives include delivering practical programming education, interview prep, and job placement support.</p>
+              </div>
+              <div class="description-section">
+                <h4><i class="fas fa-layer-group"></i> System Modules</h4>
+                <p>Key modules include personalized Dashboards, Course Management, Attendance, Assignments/Grading, Interview Prep, and a Job Placement board.</p>
+                <ul class="description-points">
+                  <li><strong>Roles:</strong> Admin, Trainer, Student.</li>
+                  <li><strong>Core Features:</strong> Course Scheduling, Daily Attendance Tracking, Resume Builder, Mock Interviews.</li>
+                </ul>
+              </div>
+              <div class="description-section">
+                <h4><i class="fas fa-book-open"></i> 6-Month Curriculum</h4>
+                <p>The curriculum progresses from Foundations (HTML, CSS, JS, PHP) to Advanced Web (Vue.js, Laravel REST) to Fullstack/DevOps (Docker, CI/CD) and finally Interview & Career preparation.</p>
+              </div>
             </div>
             
-            <!-- Project Description Section -->
-            <div class="project-description">
-                <div class="description-section">
-                    <h4><i class="fas fa-tasks"></i> Project Purpose</h4>
-                    <p>This system is designed to demonstrate a modern, scalable blog application implementing the Command Query Responsibility Segregation (CQRS) pattern. It separates read and write operations to optimize performance, allowing for independent scaling of each component based on demand.</p>
-                </div>
-                
-                <div class="description-section">
-                    <h4><i class="fas fa-sitemap"></i> Architecture Overview</h4>
-                    <p>The system follows a sophisticated event-driven architecture with clear separation between write and read operations:</p>
-                    <ul class="description-points">
-                        <li><strong>Write Side (Laravel + MySQL):</strong> Handles all commands (create, update, delete operations) and publishes events to RabbitMQ when data changes occur</li>
-                        <li><strong>Event Bus (RabbitMQ):</strong> Serves as the central message broker, queuing events (user.created, blog.updated, etc.) for processing</li>
-                        <li><strong>Read Side (Laravel Worker + MongoDB):</strong> Listens to RabbitMQ queues and updates MongoDB read models according to received events</li>
-                        <li><strong>GraphQL API (Laravel):</strong> Uses Laravel Lighthouse to serve as a GraphQL server, reading directly from MongoDB for optimized queries</li>
-                        <li><strong>Frontend (Vue 3 + Apollo Client):</strong> Queries GraphQL endpoint for read operations and sends commands to Laravel REST API for write operations</li>
-                    </ul>
-                </div>
-                
-                <div class="description-section">
-                    <h4><i class="fas fa-database"></i> Data Management</h4>
-                    <p>The system maintains two separate data stores optimized for their specific purposes:</p>
-                    <ul class="description-points">
-                        <li><strong>MySQL:</strong> Serves as the authoritative write database, maintaining data integrity and consistency</li>
-                        <li><strong>MongoDB:</strong> Contains optimized collections for fast queries with denormalized data structures (e.g., users, blogs, townships with embedded wards)</li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="architecture-flow">
-                <div class="flow-title">
-                    <i class="fas fa-project-diagram"></i>
-                    CQRS Architecture Flow
-                </div>
-                <div class="flow-diagram">
-                    <div class="flow-item">Vue Frontend</div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">Laravel API</div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">MySQL (Write)</div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">RabbitMQ</div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">MongoDB (Read)</div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">GraphQL API</div>
-                </div>
+              <div class="flow-title secondary-text">
+                <i class="fas fa-project-diagram"></i>
+                Standard 3-Tier Architecture
+              </div>
+              <div class="flow-diagram">
+                <div class="flow-item secondary-flow">Vue Frontend</div>
+                <div class="flow-arrow secondary-arrow">→</div>
+                <div class="flow-item secondary-flow">Laravel API</div>
+                <div class="flow-arrow secondary-arrow">→</div>
+                <div class="flow-item secondary-flow">MySQL DB</div>
+              </div>
             </div>
-
+            
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>JWT Authentication</h4>
-                    <p>Secure user authentication with token-based authorization and role management.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4>CQRS Pattern</h4>
-                    <p>Separates read and write operations for better performance and scalability.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h4>Event-Driven Sync</h4>
-                    <p>Real-time data synchronization using RabbitMQ message queues.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h4>GraphQL Queries</h4>
-                    <p>Efficient data fetching with flexible GraphQL query interface.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h4>Infinite Scrolling</h4>
-                    <p>Smooth user experience with infinite scroll and optimized pagination.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <h4>Containerized</h4>
-                    <p>Full Docker setup with multi-container orchestration for easy deployment.</p>
-                </div>
+              <div class="feature-card secondary-card"><h4>Role-Based Access</h4><p>Granular permissions for Admin, Trainer, and Student roles.</p></div>
+              <div class="feature-card secondary-card"><h4>Progress Reporting</h4><p>Automated tracking of student grades, attendance, and module completion.</p></div>
+              <div class="feature-card secondary-card"><h4>Live Scheduling</h4><p>Integrated class schedules and attendance system...</p></div>
+              <div class="feature-card secondary-card"><h4>Secure Assignments</h4><p>Platform for secure submission, grading, and feedback...</p></div>
             </div>
-
-            <div class="progress-section">
-                <div class="progress-title">Development Progress</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" ></div>
-                </div>
-                <div class="progress-text">
-                    95% Complete – Live on <a href="https://kayzinkhine.com" target="_blank">KayZinKhine.com</a>
-                </div>
+          </div>
+          <button class="toggle-details-btn accent-btn" aria-expanded="false">
+            <i class="fas fa-chevron-down"></i> View Details
+          </button>
+          
+          <div class="progress-section">
+            <div class="progress-title">Development Progress</div>
+            <div class="progress-bar">
+              <div class="progress-fill secondary" style="width: 40%;"></div>
             </div>
-
-            <div class="project-links">
-                <a href="https://github.com/kayzinkhaing/portfolio-cqrs-clean-architecture" class="project-link github-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                    View on GitHub
-                </a>
-                <a href="https://www.kayzinkhine.com/" class="project-link demo-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Website
-                </a>
+            <div class="progress-text">
+              40% Complete – Expected launch Q1 2026
             </div>
+          </div>
+          
+          <div class="project-links">
+            <a href="#" class="project-link github-link disabled-link">
+              <i class="fab fa-github"></i> Repo Private
+            </a>
+            <a href="#" class="project-link demo-link disabled-link">
+              <i class="fas fa-external-link-alt"></i> Preview Unavailable
+            </a>
+          </div>
         </div>
+      </article>
+      <article class="project-container project-card-1">
+          <div class="project-header">
+              <div class="project-status live">
+                  <div class="status-indicator"></div>
+                  <span>Live on Production</span>
+              </div>
+              <h3>CQRS Clean Portfolio Architecture</h3>
+              <p>A modern full-stack blogging platform implementing CQRS architecture with advanced separation of read and write operations for optimal performance and scalability. **Built using Vue 3, Laravel, and data synchronization via RabbitMQ.**</p>
+          </div>
+  
+          <div class="project-content">
+              <div class="tech-stack">
+                  <div class="tech-tag primary"><i class="fab fa-vuejs"></i> Vue 3</div>
+                  <div class="tech-tag primary"><i class="fab fa-laravel"></i> Laravel</div>
+                  <div class="tech-tag primary"><i class="fas fa-database"></i> MySQL</div>
+                  <div class="tech-tag primary"><i class="fas fa-leaf"></i> MongoDB</div>
+                  <div class="tech-tag primary"><i class="fas fa-exchange-alt"></i> RabbitMQ</div>
+                  <div class="tech-tag primary"><i class="fas fa-code-branch"></i> GraphQL</div>
+                  <div class="tech-tag primary"><i class="fab fa-docker"></i> Docker</div>
+              </div>
+  
+              <div class="collapsible-details" data-state="collapsed">
+                  
+                  <div class="project-description">
+                      <div class="description-section">
+                          <h4><i class="fas fa-tasks"></i> Project Purpose</h4>
+                          <p>This system is designed to demonstrate a modern, scalable blog application implementing the Command Query Responsibility Segregation (CQRS) pattern. It separates read and write operations to optimize performance, allowing for independent scaling of each component based on demand.</p>
+                      </div>
+                      <div class="description-section">
+                          <h4><i class="fas fa-sitemap"></i> Architecture Overview</h4>
+                          <p>The system follows a sophisticated event-driven architecture with clear separation between write and read operations:</p>
+                          <ul class="description-points">
+                              <li><strong>Write Side (Laravel + MySQL):</strong> Handles all commands...</li>
+                              <li><strong>Event Bus (RabbitMQ):</strong> Serves as the central message broker...</li>
+                              <li><strong>Read Side (Laravel Worker + MongoDB):</strong> Listens to RabbitMQ queues...</li>
+                              <li><strong>GraphQL API (Laravel):</strong> Uses Laravel Lighthouse to serve...</li>
+                              <li><strong>Frontend (Vue 3 + Apollo Client):</strong> Queries GraphQL endpoint...</li>
+                          </ul>
+                      </div>
+                      <div class="description-section">
+                          <h4><i class="fas fa-database"></i> Data Management</h4>
+                          <p>The system maintains two separate data stores optimized for their specific purposes:</p>
+                          <ul class="description-points">
+                              <li><strong>MySQL:</strong> Serves as the authoritative write database...</li>
+                              <li><strong>MongoDB:</strong> Contains optimized collections for fast queries...</li>
+                          </ul>
+                      </div>
+                  </div>
+  
+                  <div class="architecture-flow">
+                      <div class="flow-title">
+                          <i class="fas fa-project-diagram"></i>
+                          CQRS Architecture Flow
+                      </div>
+                      <div class="flow-diagram">
+                          <div class="flow-item">Vue Frontend</div>
+                          <div class="flow-arrow">→</div>
+                          <div class="flow-item">Laravel API</div>
+                          <div class="flow-arrow">→</div>
+                          <div class="flow-item">MySQL (Write)</div>
+                          <div class="flow-arrow">→</div>
+                          <div class="flow-item">RabbitMQ</div>
+                          <div class="flow-arrow">→</div>
+                          <div class="flow-item">MongoDB (Read)</div>
+                          <div class="flow-arrow">→</div>
+                          <div class="flow-item">GraphQL API</div>
+                      </div>
+                  </div>
+  
+                  <div class="features-grid">
+                      <div class="feature-card"><h4>JWT Authentication</h4><p>Secure user authentication with token-based authorization...</p></div>
+                      <div class="feature-card"><h4>CQRS Pattern</h4><p>Separates read and write operations for better performance...</p></div>
+                      <div class="feature-card"><h4>Event-Driven Sync</h4><p>Real-time data synchronization using RabbitMQ...</p></div>
+                      <div class="feature-card"><h4>GraphQL Queries</h4><p>Efficient data fetching with flexible GraphQL query interface.</p></div>
+                      <div class="feature-card"><h4>Infinite Scrolling</h4><p>Smooth user experience with infinite scroll...</p></div>
+                      <div class="feature-card"><h4>Containerized</h4><p>Full Docker setup with multi-container orchestration...</p></div>
+                  </div>
+              </div>
+              <button class="toggle-details-btn primary-btn" aria-expanded="false">
+                  <i class="fas fa-chevron-down"></i> View Details
+              </button>
+  
+  
+              <div class="progress-section">
+                  <div class="progress-title">Development Progress</div>
+                  <div class="progress-bar">
+                      <div class="progress-fill primary" style="width: 95%;"></div>
+                  </div>
+                  <div class="progress-text">
+                      95% Complete – Live on <a href="https://kayzinkhine.com" target="_blank">KayZinKhine.com</a>
+                  </div>
+              </div>
+  
+              <div class="project-links">
+                  <a href="https://github.com/kayzinkhaing/portfolio-cqrs-clean-architecture" class="project-link github-link" target="_blank">
+                      <i class="fab fa-github"></i> View on GitHub
+                  </a>
+                  <a href="https://www.kayzinkhine.com/" class="project-link demo-link">
+                      <i class="fas fa-external-link-alt"></i> Live Website
+                  </a>
+              </div>
+          </div>
+      </article>
     </div>
 </section>
 

@@ -278,3 +278,31 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.toggle-details-btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Find the parent project-content container
+            const projectContent = button.closest('.project-content');
+            
+            // Find the collapsible section within that project
+            const details = projectContent.querySelector('.collapsible-details');
+
+            // Toggle the state attribute
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                // Collapse the details
+                details.setAttribute('data-state', 'collapsed');
+                button.setAttribute('aria-expanded', 'false');
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+            } else {
+                // Expand the details
+                details.setAttribute('data-state', 'expanded');
+                button.setAttribute('aria-expanded', 'true');
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+            }
+        });
+    });
+});
