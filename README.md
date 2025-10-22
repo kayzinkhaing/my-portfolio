@@ -28,7 +28,7 @@ This site showcases my experience, projects, and technical skills as a full-stac
 
 ## 📸 Preview
 
-![Portfolio Screenshot](images\preview.png) <!-- Optional, update path if needed -->
+![Portfolio Screenshot](assets/images/portfolio.png) <!-- Optional, update path if needed -->
 
 ---
 
