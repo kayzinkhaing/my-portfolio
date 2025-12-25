@@ -156,89 +156,152 @@
         
       
       <article class="project-container project-card-2">
-        <div class="project-header">
-          <div class="project-status development">
+    <!-- ================= HEADER ================= -->
+    <div class="project-header">
+        <div class="project-status development">
             <div class="status-indicator"></div>
-            <span>In Development</span>
-          </div>
-          <h3>ItVisionHub — Training Management System (SRS)</h3>
-          <p>6-month in-class training management platform to run ItVisionHub: course management, attendance, assignments, interview prep and job placement support.</p>
+            <span>In Active Development</span>
         </div>
-        
-        <div class="project-content">
-          <div class="tech-stack">
-            <div class="tech-tag secondary"><i class="fab fa-vuejs"></i> Vue.js</div>
-            <div class="tech-tag secondary"><i class="fab fa-laravel"></i> Laravel</div>
-            <div class="tech-tag secondary"><i class="fas fa-database"></i> MySQL</div>
+
+        <h3>TMS — Training Management System</h3>
+
+        <p>
+            TMS (Training Management System) is a centralized platform I developed to help training centers manage
+            courses, instructors, students, attendance, payments, communication, and certification in one
+            professional system — replacing manual processes with automation, accuracy, and real-time reporting.
+        </p>
+    </div>
+
+    <!-- ================= CONTENT ================= -->
+    <div class="project-content">
+
+        <!-- ================= TECH STACK ================= -->
+        <div class="tech-stack">
+            <div class="tech-tag secondary"><i class="fab fa-laravel"></i> Laravel (Blade)</div>
             <div class="tech-tag secondary"><i class="fab fa-docker"></i> Docker</div>
+            <div class="tech-tag secondary"><i class="fas fa-database"></i> MySQL</div>
+            <div class="tech-tag secondary"><i class="fab fa-css3-alt"></i> Tailwind + CSS</div>
+            <div class="tech-tag secondary"><i class="fas fa-bolt"></i> Vite</div>
+            <div class="tech-tag secondary"><i class="fab fa-github"></i> Git / GitHub</div>
+            <div class="tech-tag secondary"><i class="fas fa-layer-group"></i> N-Tier Architecture</div>
+            <div class="tech-tag secondary"><i class="fas fa-cubes"></i> OOP & SOLID</div>
             <div class="tech-tag secondary"><i class="fas fa-truck-loading"></i> CI/CD</div>
-          </div>
-          
-          <div class="collapsible-details" data-state="collapsed">
+        </div>
+
+        <!-- ================= COLLAPSIBLE DETAILS ================= -->
+        <div class="collapsible-details" data-state="collapsed">
+
+            <!-- ===== OVERVIEW ===== -->
             <div class="project-description">
-              <div class="description-section">
-                <h4><i class="fas fa-info-circle"></i> Overview & Objectives</h4>
-                <p>ItVisionHub is a 6-month, hands-on in-class program designed to turn learners into job-ready senior developers. Objectives include delivering practical programming education, interview prep, and job placement support.</p>
-              </div>
-              <div class="description-section">
-                <h4><i class="fas fa-layer-group"></i> System Modules</h4>
-                <p>Key modules include personalized Dashboards, Course Management, Attendance, Assignments/Grading, Interview Prep, and a Job Placement board.</p>
-                <ul class="description-points">
-                  <li><strong>Roles:</strong> Admin, Trainer, Student.</li>
-                  <li><strong>Core Features:</strong> Course Scheduling, Daily Attendance Tracking, Resume Builder, Mock Interviews.</li>
-                </ul>
-              </div>
-              <div class="description-section">
-                <h4><i class="fas fa-book-open"></i> 6-Month Curriculum</h4>
-                <p>The curriculum progresses from Foundations (HTML, CSS, JS, PHP) to Advanced Web (Vue.js, Laravel REST) to Fullstack/DevOps (Docker, CI/CD) and finally Interview & Career preparation.</p>
-              </div>
+                <div class="description-section">
+                    <h4><i class="fas fa-info-circle"></i> System Overview</h4>
+                    <p>
+                        TMS is designed to manage the complete lifecycle of a training program — from course creation
+                        and student enrollment to attendance tracking, payments, reporting, and certificate issuance.
+                        The system focuses on security, scalability, and clean architecture using best practices.
+                    </p>
+                </div>
+
+                <!-- ===== MODULES ===== -->
+                <div class="description-section">
+                    <h4><i class="fas fa-layer-group"></i> Core System Modules</h4>
+                    <ul class="description-points">
+                        <li><strong>User & Role Management (RBAC):</strong> Admin, Instructor, Editor, Staff, Student with permission control.</li>
+                        <li><strong>Course Management:</strong> Course setup, fees, duration, instructors, technologies.</li>
+                        <li><strong>Class Scheduling:</strong> Weekly timetables, auto-generated class dates, conflict checking.</li>
+                        <li><strong>Student Enrollment:</strong> Registration, course application, approval workflow.</li>
+                        <li><strong>Attendance Management:</strong> QR-code based attendance with present, late, absent states.</li>
+                        <li><strong>Instructor Management:</strong> Assigned courses, students, schedules, blog creation.</li>
+                        <li><strong>Finance & Payments:</strong> Payment tracking, invoices, outstanding balance reports.</li>
+                        <li><strong>Notifications:</strong> Email & in-app alerts for classes, payments, announcements.</li>
+                        <li><strong>Dashboard & Reports:</strong> Real-time charts, exports to PDF / Excel.</li>
+                        <li><strong>Certificate Management:</strong> Auto-generated certificates based on attendance criteria.</li>
+                    </ul>
+                </div>
+
+                <!-- ===== SECURITY ===== -->
+                <div class="description-section">
+                    <h4><i class="fas fa-shield-alt"></i> Security & Access Control</h4>
+                    <p>
+                        The system uses Role-Based Access Control (RBAC), policies, middleware, email/password
+                        authentication, social login (Google & GitHub), and Two-Factor Authentication (2FA)
+                        to protect sensitive actions across the platform.
+                    </p>
+                </div>
             </div>
-            
+
+            <!-- ================= ARCHITECTURE ================= -->
             <div class="architecture-flow">
-              <div class="flow-title secondary-text">
-                <i class="fas fa-project-diagram"></i>
-                Standard 3-Tier Architecture
-              </div>
-              <div class="flow-diagram">
-                <div class="flow-item secondary-flow">Vue Frontend</div>
-                <div class="flow-arrow secondary-arrow">→</div>
-                <div class="flow-item secondary-flow">Laravel API</div>
-                <div class="flow-arrow secondary-arrow">→</div>
-                <div class="flow-item secondary-flow">MySQL DB</div>
-              </div>
+                <div class="flow-title secondary-text">
+                    <i class="fas fa-project-diagram"></i>
+                    N-Tier System Architecture
+                </div>
+
+                <div class="flow-diagram">
+                    <div class="flow-item secondary-flow">Blade UI</div>
+                    <div class="flow-arrow secondary-arrow">→</div>
+                    <div class="flow-item secondary-flow">Controllers</div>
+                    <div class="flow-arrow secondary-arrow">→</div>
+                    <div class="flow-item secondary-flow">Services</div>
+                    <div class="flow-arrow secondary-arrow">→</div>
+                    <div class="flow-item secondary-flow">Repositories</div>
+                    <div class="flow-arrow secondary-arrow">→</div>
+                    <div class="flow-item secondary-flow">MySQL</div>
+                </div>
             </div>
-            
+
+            <!-- ================= FEATURES GRID ================= -->
             <div class="features-grid">
-              <div class="feature-card secondary-card"><h4>Role-Based Access</h4><p>Granular permissions for Admin, Trainer, and Student roles.</p></div>
-              <div class="feature-card secondary-card"><h4>Progress Reporting</h4><p>Automated tracking of student grades, attendance, and module completion.</p></div>
-              <div class="feature-card secondary-card"><h4>Live Scheduling</h4><p>Integrated class schedules and attendance system...</p></div>
-              <div class="feature-card secondary-card"><h4>Secure Assignments</h4><p>Platform for secure submission, grading, and feedback...</p></div>
+                <div class="feature-card secondary-card">
+                    <h4>RBAC Security</h4>
+                    <p>Strict role and permission control using Laravel policies and middleware.</p>
+                </div>
+
+                <div class="feature-card secondary-card">
+                    <h4>QR Attendance</h4>
+                    <p>Automated attendance tracking using unique QR codes.</p>
+                </div>
+
+                <div class="feature-card secondary-card">
+                    <h4>Finance Tracking</h4>
+                    <p>Student payments, invoices, and outstanding balance reports.</p>
+                </div>
+
+                <div class="feature-card secondary-card">
+                    <h4>Reporting</h4>
+                    <p>Exportable reports for students, courses, instructors, and revenue.</p>
+                </div>
             </div>
-          </div>
-          <button class="toggle-details-btn accent-btn" aria-expanded="false">
-            <i class="fas fa-chevron-down"></i> View Details
-          </button>
-          
-          <div class="progress-section">
+        </div>
+
+        <!-- ================= TOGGLE ================= -->
+        <button class="toggle-details-btn accent-btn" aria-expanded="false">
+            <i class="fas fa-chevron-down"></i> View Full System Details
+        </button>
+
+        <!-- ================= PROGRESS ================= -->
+        <div class="progress-section">
             <div class="progress-title">Development Progress</div>
             <div class="progress-bar">
-              <div class="progress-fill secondary" style="width: 40%;"></div>
+                <div class="progress-fill secondary" style="width: 80%;"></div>
             </div>
             <div class="progress-text">
-              40% Complete – Expected launch Q1 2026
+                80% Complete – Production Deployment Planned (DigitalOcean)
             </div>
-          </div>
-          
-          <div class="project-links">
+        </div>
+
+        <!-- ================= LINKS ================= -->
+        <div class="project-links">
             <a href="#" class="project-link github-link disabled-link">
-              <i class="fab fa-github"></i> Repo Private
+                <i class="fab fa-github"></i> Private Repository
             </a>
             <a href="#" class="project-link demo-link disabled-link">
-              <i class="fas fa-external-link-alt"></i> Preview Unavailable
+                <i class="fas fa-external-link-alt"></i> Demo Coming Soon
             </a>
-          </div>
         </div>
-      </article>
+    </div>
+</article>
+
       <article class="project-container project-card-1">
           <div class="project-header">
               <div class="project-status live">
