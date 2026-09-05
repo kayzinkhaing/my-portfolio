@@ -33,11 +33,11 @@ $(document).ready(function () {
   });
 
   // Smooth scroll behavior
-  $('a[href*="#"]').on('click', function (e) {
+  $('a[href^="#"]').on('click', function (e) {
+    const target = document.querySelector($(this).attr('href'));
+    if (!target) return;
     e.preventDefault();
-    $('html, body').animate({
-      scrollTop: $($(this).attr('href')).offset().top,
-    }, 500, 'linear');
+    target.scrollIntoView({ behavior: 'smooth' });
 
     // Close mobile menu after clicking a link
     $('#menu').removeClass('fa-times');
@@ -99,97 +99,42 @@ var typed = new Typed(".typing-text", {
     backSpeed: 50,
     backDelay: 800,
 });
-// <!-- typed js effect ends -->
 
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
-    const data = await response.json();
-    return data;
+async function fetchProjects() {
+  const response = await fetch('./projects/projects.json');
+  if (!response.ok) throw new Error('Unable to load projects');
+  return response.json();
+}
+
+async function fetchSkills() {
+  const response = await fetch('./skills.json');
+  if (!response.ok) throw new Error('Unable to load skills');
+  return response.json();
 }
 
 function showSkills(skills) {
-  let skillsContainer = document.getElementById("skillsContainer");
-  let skillHTML = "";
-  skills.forEach(skill => {
-    skillHTML += `
-      <div class="bar">
-        <div class="info">
-          <img src="${skill.icon}" alt="${skill.name}" />
-          <span>${skill.name}</span>
-        </div>
-      </div>`;
-  });
-  skillsContainer.innerHTML = skillHTML;
-}
-
-
-function showProjects(projects) {
-  const projectsContainer = document.querySelector("#work .project-grid");
-  if (!projectsContainer) return;
-
-  const projectHTML = projects.map(project => `
-    <div class="project-card tilt" tabindex="0" aria-label="${project.name} project">
-      <img 
-        src="./assets/images/projects/${project.image}" 
-        alt="${project.name} project image" 
-        draggable="false" 
-        loading="lazy"
-      />
-      <div class="content">
-        <div class="tag">
-          <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="technologies">
-            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-          </div>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank" rel="noopener">
-              <i class="fas fa-eye"></i> View
-            </a>
-            <a href="${project.links.code}" class="btn" target="_blank" rel="noopener">
-              Code <i class="fas fa-code"></i>
-            </a>
-          </div>
-        </div>
+  const container = document.getElementById('skillsContainer');
+  if (!container) return;
+  container.innerHTML = skills.map(skill => `
+    <div class="bar">
+      <div class="info">
+        <img src="${skill.icon}" alt="${skill.name} icon" loading="lazy" onerror="this.hidden = true">
+        <span>${skill.name}</span>
       </div>
     </div>
-  `).join("");
-
-  projectsContainer.innerHTML = projectHTML;
-
-  // Tilt effect
-  VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-  });
-
-  // Scroll reveal animation
-  const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: false
-  });
-
-  srtop.reveal('.work .project-card', { interval: 200 });
+  `).join('');
 }
 
-// Load skills and projects
-fetchData().then(data => {
-  showSkills(data);
-});
+// The modern initializer below is the only active homepage carousel.
 
-fetchData("projects").then(data => {
-  showProjects(data);
-});
+// disable developer mode
+document.onkeydown = function (e) {
+  if (e.keyCode == 123) return false;
+  if (e.ctrlKey && e.shiftKey && [73, 67, 74].includes(e.keyCode)) return false;
+  if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+};
+
+fetchSkills().then(showSkills).catch(error => console.error('Skills could not be loaded:', error));
 
 // Tilt js fallback
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -226,6 +171,190 @@ document.onkeydown = function (e) {
         return false;
     }
 }
+
+async function initModernProjectCarousel() {
+  const viewport = document.querySelector('.project-carousel-viewport');
+  const track = document.querySelector('#work .project-grid');
+  const dots = document.querySelector('.project-dots');
+  const previous = document.querySelector('.project-prev');
+  const next = document.querySelector('.project-next');
+  if (!viewport || !track || !dots || !previous || !next) return;
+
+  let projects;
+  try {
+    projects = await fetchProjects();
+  } catch (error) {
+    console.error('Projects could not be loaded:', error);
+    return;
+  }
+
+  if (!projects.length) {
+    console.error('No projects are available for the carousel.');
+    return;
+  }
+  track.innerHTML = projects.map(project => `
+    <article class="project-card" tabindex="0" aria-label="${project.name} project">
+      <div class="project-card-image">
+        <img src="./assets/images/projects/${project.image}" alt="${project.name} project image" draggable="false" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <h3>${project.name}</h3>
+        <p>${project.desc}</p>
+        <div class="project-card-tags">
+          ${project.technologies.map(technology => `<span>${technology}</span>`).join('')}
+        </div>
+        <div class="project-card-links">
+          <a href="${project.links.view}" target="_blank" rel="noopener"><i class="fas fa-eye"></i> View</a>
+          <a href="${project.links.code}" target="_blank" rel="noopener"><i class="fas fa-code"></i> Code</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  const cards = [...track.querySelectorAll('.project-card')];
+  let current = 0;
+  let isModalOpen = false;
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const baseTransform = card.style.transform;
+      card.animate([
+        { transform: baseTransform },
+        { transform: `${baseTransform} rotate(0.8deg)` },
+        { transform: `${baseTransform} rotate(-0.8deg)` },
+        { transform: baseTransform }
+      ], {
+        duration: 360,
+        easing: 'ease-in-out'
+      });
+    });
+  });
+
+  dots.innerHTML = cards.map((_, index) => `
+    <button class="project-dot${index === 0 ? ' active' : ''}" type="button" role="tab" aria-label="Show project ${index + 1}" aria-selected="${index === 0}"></button>
+  `).join('');
+
+  function getOffset(index) {
+    let offset = index - current;
+    if (offset > cards.length / 2) offset -= cards.length;
+    if (offset < -cards.length / 2) offset += cards.length;
+    return offset;
+  }
+
+  function layout() {
+    const isMobile = window.innerWidth <= 600;
+    const spacing = isMobile ? 190 : window.innerWidth <= 1000 ? 210 : Math.min(360, window.innerWidth * 0.25);
+    const visibleRange = isMobile ? 1 : 2;
+
+    cards.forEach((card, index) => {
+      const offset = getOffset(index);
+      const distance = Math.abs(offset);
+      const visible = distance <= visibleRange;
+      const scale = distance === 0 ? 1 : distance === 1 ? (isMobile ? 0.78 : 0.86) : 0.72;
+      const opacity = distance === 0 ? 1 : distance === 1 ? 0.84 : 0;
+      card.style.transform = `translate(-50%, -50%) translateX(${offset * spacing}px) scale(${scale}) rotateY(${offset * -8}deg)`;
+      card.style.opacity = opacity;
+      card.style.zIndex = String(20 - distance);
+      card.style.pointerEvents = visible && !isModalOpen ? 'auto' : 'none';
+      card.classList.toggle('is-active', distance === 0);
+    });
+
+    viewport.classList.toggle('is-modal-open', isModalOpen);
+    previous.disabled = isModalOpen;
+    next.disabled = isModalOpen;
+
+    dots.querySelectorAll('.project-dot').forEach((dot, index) => {
+      const active = index === current;
+      dot.classList.toggle('active', active);
+      dot.setAttribute('aria-selected', String(active));
+      dot.disabled = isModalOpen;
+    });
+  }
+
+  function move(step) {
+    if (isModalOpen) return;
+    current = (current + step + cards.length) % cards.length;
+    layout();
+  }
+
+  const modal = document.querySelector('#project-modal');
+  const modalImage = document.querySelector('#project-modal-image');
+  const modalTitle = document.querySelector('#project-modal-title');
+  const modalDescription = document.querySelector('#project-modal-description');
+  const modalTags = document.querySelector('#project-modal-tags');
+  const modalView = document.querySelector('#project-modal-view');
+  const modalCode = document.querySelector('#project-modal-code');
+  const closeModalButtons = modal ? modal.querySelectorAll('[data-modal-close]') : [];
+
+  function setModalLink(link, url) {
+    link.href = url || '#';
+    link.classList.toggle('is-disabled', !url || url === '#');
+    link.setAttribute('aria-disabled', String(!url || url === '#'));
+  }
+
+  function openModal(index) {
+    const project = projects[index];
+    if (!modal || !project) return;
+    const cardImage = cards[index]?.querySelector('.project-card-image img');
+    const imageSource = cardImage?.currentSrc || cardImage?.getAttribute('src') || `./assets/images/projects/${project.image}`;
+    modalImage.removeAttribute('src');
+    modalImage.loading = 'eager';
+    modalImage.decoding = 'async';
+    modalImage.src = imageSource;
+    modalImage.alt = `${project.name} project image`;
+    modalTitle.textContent = project.name;
+    modalDescription.textContent = project.desc;
+    modalTags.innerHTML = project.technologies.map(technology => `<span>${technology}</span>`).join('');
+    setModalLink(modalView, project.links.view);
+    setModalLink(modalCode, project.links.code);
+    isModalOpen = true;
+    modal.classList.add('is-visible');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('project-modal-open');
+    layout();
+    modal.querySelector('.project-modal-close').focus();
+  }
+
+  function closeModal() {
+    if (!modal || !isModalOpen) return;
+    isModalOpen = false;
+    modal.classList.remove('is-visible');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('project-modal-open');
+    layout();
+  }
+
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  dots.querySelectorAll('.project-dot').forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      if (isModalOpen) return;
+      current = index;
+      layout();
+    });
+  });
+  track.addEventListener('click', event => {
+    const card = event.target.closest('.project-card');
+    if (!card) return;
+    const index = cards.indexOf(card);
+    if (isModalOpen || event.target.closest('a')) return;
+    if (index !== current) {
+      current = index;
+      layout();
+    } else {
+      openModal(index);
+    }
+  });
+  closeModalButtons.forEach(button => button.addEventListener('click', closeModal));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeModal();
+  });
+  window.addEventListener('resize', layout);
+  layout();
+}
+
+initModernProjectCarousel();
 
 
 

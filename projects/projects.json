@@ -1,12 +1,67 @@
 [
     {
+        "name": "Daily Need Items - Microservices Marketplace",
+        "desc": "A production-grade marketplace spanning e-commerce, food delivery, and ride-hailing. Designed with independently deployable services, asynchronous workflows, and resilient cross-service communication.",
+        "image": "dni.png",
+        "category": "web",
+        "technologies": ["Laravel", "React", "TypeScript", "RabbitMQ", "gRPC", "Docker", "DigitalOcean"],
+        "links": {
+            "view": "https://dailyneeditems.com/",
+            "code": "#"
+        }
+    },
+    {
+        "name": "Banking Management System",
+        "desc": "A secure banking platform using domain-driven design and clean architecture, with validated REST APIs and a React Native mobile client for end-to-end banking workflows.",
+        "image": "banking.png",
+        "category": "web",
+        "technologies": ["C#", "ASP.NET Core 8", "EF Core", "MediatR", "React Native", "JWT", "Docker"],
+        "links": {
+            "view": "#",
+            "code": "#"
+        }
+    },
+    {
+        "name": "Employment Management System",
+        "desc": "A modular workforce platform with automated payroll, PDF payslip generation, multi-level leave approvals, role-based access, and optimized reporting queries.",
+        "image": "job.png",
+        "category": "web",
+        "technologies": ["ASP.NET Core 8", "EF Core", "Dapper", "SQL Server", "JWT", "Docker"],
+        "links": {
+            "view": "#",
+            "code": "#"
+        }
+    },
+    {
+        "name": "Training Management System",
+        "desc": "An enterprise learning platform for course management, student enrollment, QR attendance, payments, reporting, notifications, and automated certification.",
+        "image": "itvisionsoft.png",
+        "category": "web",
+        "technologies": ["Laravel", "Blade", "MySQL", "Redis", "Docker", "RBAC"],
+        "links": {
+            "view": "https://itvisionsoft.com/",
+            "code": "#"
+        }
+    },
+    {
+        "name": "CQRS Clean Architecture Portfolio",
+        "desc": "A full-stack platform separating MySQL write operations from MongoDB read models, synchronized with RabbitMQ and exposed through GraphQL.",
+        "image": "profile1.png",
+        "category": "web",
+        "technologies": ["Laravel 12", "Vue 3", "MongoDB", "GraphQL", "RabbitMQ", "Docker"],
+        "links": {
+            "view": "https://kayzinkhine.com/",
+            "code": "https://github.com/kayzinkhaing/portfolio-cqrs-clean-architecture"
+        }
+    },
+    {
         "name": "GiveMM – Charity Crowdfunding Platform",
         "desc": "A full-stack Laravel web application that empowers users to create and manage charity fundraising campaigns. Features include secure local (KPay, WavePay) and international (Stripe) donation processing, real-time progress tracking, role-based access control for admins and users, and a clean UI built with Blade and Bootstrap.",
         "image": "mm_give.png",
         "category": "web",
         "technologies": ["Laravel", "MySQL","Docker","Redis", "Stripe", "Bootstrap"],
         "links": {
-            "view": "https://github.com/ITVHBaseCode/Givemm",
+            "view": "https://givemyanmar.com/",
             "code": "https://github.com/ITVHBaseCode/Givemm"
         }
     },
